@@ -9,3 +9,16 @@ To play with this repo:
 - Clone it to your machine
 - ```cd``` into the band-name-generator folder
 - Run ```npm install```
+
+
+
+Sources:
+
+jQuery post() method
+http://api.jquery.com/jquery.post/
+
+jQuery reset() method
+http://api.jquery.com/reset-selector/
+
+jQuery empty() method
+https://api.jquery.com/empty/

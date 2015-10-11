@@ -6,7 +6,6 @@ var bodyparser = require('body-parser');
 var port = process.env.PORT || 3000;
 var Adjective = require('./lib/adjective.js');
 //assign Adjective variable name to adjective.js file
-//
 var Verb = require('./lib/verb.js');
 var Noun = require('./lib/noun.js');
 var getRandomWord = require('./lib/getRandomWord.js');
@@ -24,6 +23,7 @@ app.use(express.static(__dirname + '/app/'));
 //statically serves the contents of app
 
 function postWord (word, wordObject) {
+
   if (wordObject.hasOwnProperty(word)) {
     return {msg: 'We already have your awesome word, ' + word + ', in our list.'};
   }
@@ -46,7 +46,20 @@ app.get('/noun', function(req, res) {
 });
 
 app.post('/adjective', function(req, res) {
+  console.log('word (adjective) = ' + word);
   var word = postWord(req.body.word, adjective);
+  res.json(word);
+});
+
+app.post('/verb', function(req, res) {
+  console.log('word (verb) = ' + word);
+  var word = postWord(req.body.word, verb);
+  res.json(word);
+});
+
+app.post('/noun', function(req, res) {
+  console.log('word (noun) = ' + word);
+  var word = postWord(req.body.word, noun);
   res.json(word);
 });
 
