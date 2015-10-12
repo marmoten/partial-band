@@ -19,7 +19,45 @@ $(function() {
       var noun = response.word;
       $("#noun").text(noun);
     });
+  });
 
+  $("#allAdjectives").hover(function(){
+      $.get('allAdjectives', function(response) {
+        $("#showWordList").empty();
+        var adjectives = response;
+        adjectives.sort();
+        for (var i = 0 ; i < adjectives.length ; i++) {
+          $("#showWordList").append('<br>' + adjectives[i]);
+        }
+      });
+    }, function() {
+    $("#showWordList").empty();
+  });
+
+  $("#allVerbs").hover(function(){
+      $.get('allVerbs', function(response) {
+        $("#showWordList").empty();
+        var verbs = response;
+        verbs.sort();
+        for (var i = 0 ; i < verbs.length ; i++) {
+          $("#showWordList").append('<br>' + verbs[i]);
+        }
+      });
+    }, function() {
+    $("#showWordList").empty();
+  });
+
+  $("#allNouns").hover(function(){
+      $.get('allNouns', function(response) {
+        $("#showWordList").empty();
+        var nouns = response;
+        nouns.sort();
+        for (var i = 0 ; i < nouns.length ; i++) {
+          $("#showWordList").append('<br>' + nouns[i]);
+        }
+      });
+    }, function() {
+    $("#showWordList").empty();
   });
 
   $("#submitWords").on("submit", function(e) {
@@ -44,7 +82,6 @@ $(function() {
     var nounPost;
 
     if (adjective) {
-      console.log('adjective = ' + adjective);
       adjPost = {word: adjective};
       $.post("adjective", adjPost, function(response) {
         //post adjective to
@@ -55,7 +92,6 @@ $(function() {
     }
 
     if (verb) {
-      console.log('verb = ' + verb);
       verbPost = {word: verb};
       $.post("verb", verbPost, function(response) {
         //post verb to
@@ -66,7 +102,6 @@ $(function() {
     }
 
     if (noun) {
-      console.log('noun = ' + noun);
       nounPost = {word: noun};
       $.post("noun", nounPost, function(response) {
         //post noun to
@@ -78,5 +113,4 @@ $(function() {
 
     $("#submitWords")[0].reset();
   });
-
 });

@@ -9,6 +9,7 @@ var Adjective = require('./lib/adjective.js');
 var Verb = require('./lib/verb.js');
 var Noun = require('./lib/noun.js');
 var getRandomWord = require('./lib/getRandomWord.js');
+var showAllWords = require('./lib/showAllWords.js');
 
 var adjective = new Adjective();
 var verb = new Verb();
@@ -45,20 +46,29 @@ app.get('/noun', function(req, res) {
   res.json(getRandomWord(noun));
 });
 
+app.get('/allAdjectives', function(req, res) {
+  res.json(showAllWords(adjective));
+});
+
+app.get('/allVerbs', function(req, res) {
+  res.json(showAllWords(verb));
+});
+
+app.get('/allNouns', function(req, res) {
+  res.json(showAllWords(noun));
+});
+
 app.post('/adjective', function(req, res) {
-  console.log('word (adjective) = ' + word);
   var word = postWord(req.body.word, adjective);
   res.json(word);
 });
 
 app.post('/verb', function(req, res) {
-  console.log('word (verb) = ' + word);
   var word = postWord(req.body.word, verb);
   res.json(word);
 });
 
 app.post('/noun', function(req, res) {
-  console.log('word (noun) = ' + word);
   var word = postWord(req.body.word, noun);
   res.json(word);
 });
