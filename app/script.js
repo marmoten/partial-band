@@ -27,11 +27,14 @@ $(function() {
         var adjectives = response;
         adjectives.sort();
         for (var i = 0 ; i < adjectives.length ; i++) {
-          $("#showWordList").append('<br>' + adjectives[i]);
+          $("#showWordList").append(adjectives[i] + '<br>');
         }
       });
+      $("#showWordList").css("color", "#7A306C");
+      $("#allAdjectives").css("color", "#7A306C");
     }, function() {
     $("#showWordList").empty();
+    $("#allAdjectives").css("color", "#6F8AB7");
   });
 
   $("#allVerbs").hover(function(){
@@ -40,11 +43,14 @@ $(function() {
         var verbs = response;
         verbs.sort();
         for (var i = 0 ; i < verbs.length ; i++) {
-          $("#showWordList").append('<br>' + verbs[i]);
+          $("#showWordList").append(verbs[i] + '<br>');
         }
       });
+      $("#showWordList").css("color", "#7A306C");
+      $("#allVerbs").css("color", "#7A306C");
     }, function() {
     $("#showWordList").empty();
+    $("#allVerbs").css("color", "#6F8AB7");
   });
 
   $("#allNouns").hover(function(){
@@ -53,11 +59,14 @@ $(function() {
         var nouns = response;
         nouns.sort();
         for (var i = 0 ; i < nouns.length ; i++) {
-          $("#showWordList").append('<br>' + nouns[i]);
+          $("#showWordList").append(nouns[i] + '<br>');
         }
       });
+      $("#showWordList").css("color", "#7A306C");
+      $("#allNouns").css("color", "#7A306C");
     }, function() {
     $("#showWordList").empty();
+    $("#allNouns").css("color", "#6F8AB7");
   });
 
   $("#submitWords").on("submit", function(e) {

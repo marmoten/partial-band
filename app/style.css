@@ -1,0 +1,31 @@
+body {
+  background-color: #1D2113;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+
+h2 {
+  color: #7A306C;
+}
+
+h3 {
+  color: #6F8AB7;
+}
+
+p {
+  color: #C5E5F4;
+}
+
+#bandName {
+  font-style: italic;
+  color: #7A306C;
+  font-size: 200%;
+  line-height: 5pt;
+}
+
+input, button {
+  background-color: #C5E5F4;
+  padding: 5px;
+  border: solid 2px #6F8AB7;
+  transition: border 0.3s;
+}

@@ -1,32 +1,37 @@
 <html>
+  <head>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+  </head>
   <body>
     <h2>
       Welcome to the Band Name Generator
     </h2>
 
-    <button id="name">Get a random band name!</button>
+    <h3>Get a random band name!</h3>
+    <button id="name">Click Here!</button>
 
-    <p>
-      Your name:
+    <p>Your band name:</p>
+    <p id="bandName">&nbsp;
       <span id="adjective"></span>
       <span id="verb"></span>
       <span id="noun"></span>
     </p>
 
     <br>
-    <h3>Submit words!</h3>
+    <h3>Add more words!</h3>
     <form id="submitWords">
-      <p><label>Give us an adjective:</label><input type="text" name="adjective"></p>
-      <p><label>Give us a verb:</label><input type="text" name="verb"></p>
-      <p><label>Give us a noun:</label><input type="text" name="noun"></p>
+      <p><label>Give us an adjective: </label><input type="text" name="adjective"></p>
+      <p><label>Give us a verb: </label><input type="text" name="verb"></p>
+      <p><label>Give us a noun: </label><input type="text" name="noun"></p>
       <input type="submit" value="Submit Words"/>
     </form>
 
     <p id='adjectiveRes'></p>
     <p id='verbRes'></p>
     <p id='nounRes'></p>
+    <p>&nbsp;</p>
 
-    <h3>See all: <span id="allAdjectives">Adjectives - </span><span id="allVerbs">Verbs - </span><span id="allNouns">Nouns</span></h3>
+    <h3>See all<br><span id="allAdjectives">Adjectives!</span> - <span id="allVerbs">Verbs!</span> - <span id="allNouns">Nouns!</span></h3>
     <p id="showWordList"></p>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
