@@ -6,6 +6,7 @@ $(function() {
     $.get('adjective', function(response) {
       //get request from adjective route, sends response (json) into function
       var adjective = response.word;
+
       //assigns variable to value of word in the response json object
       $("#adjective").text(adjective);
     });
@@ -21,7 +22,7 @@ $(function() {
     });
   });
 
-  $("#allAdjectives").hover(function(){
+  $("#allAdjectives").hover(function() {
       $.get('allAdjectives', function(response) {
         $("#showWordList").empty();
         var adjectives = response;
@@ -30,14 +31,17 @@ $(function() {
           $("#showWordList").append(adjectives[i] + '<br>');
         }
       });
+
       $("#showWordList").css("color", "#7A306C");
       $("#allAdjectives").css("color", "#7A306C");
-    }, function() {
+    },
+
+    function() {
     $("#showWordList").empty();
     $("#allAdjectives").css("color", "#6F8AB7");
   });
 
-  $("#allVerbs").hover(function(){
+  $("#allVerbs").hover(function() {
       $.get('allVerbs', function(response) {
         $("#showWordList").empty();
         var verbs = response;
@@ -46,14 +50,17 @@ $(function() {
           $("#showWordList").append(verbs[i] + '<br>');
         }
       });
+
       $("#showWordList").css("color", "#7A306C");
       $("#allVerbs").css("color", "#7A306C");
-    }, function() {
+    },
+
+    function() {
     $("#showWordList").empty();
     $("#allVerbs").css("color", "#6F8AB7");
   });
 
-  $("#allNouns").hover(function(){
+  $("#allNouns").hover(function() {
       $.get('allNouns', function(response) {
         $("#showWordList").empty();
         var nouns = response;
@@ -62,9 +69,12 @@ $(function() {
           $("#showWordList").append(nouns[i] + '<br>');
         }
       });
+
       $("#showWordList").css("color", "#7A306C");
       $("#allNouns").css("color", "#7A306C");
-    }, function() {
+    },
+
+    function() {
     $("#showWordList").empty();
     $("#allNouns").css("color", "#6F8AB7");
   });
@@ -79,44 +89,39 @@ $(function() {
     $("#nounRes").empty();
 
     var adjective = $("input[name=adjective]").val();
-    //take adjective from form
     var adjPost;
 
     var verb = $("input[name=verb]").val();
-    //take verb from form
     var verbPost;
 
     var noun = $("input[name=noun]").val();
-    //take noun from form
     var nounPost;
 
     if (adjective) {
       adjPost = {word: adjective};
+
+      //post adjective to
       $.post("adjective", adjPost, function(response) {
-        //post adjective to
         var adjectiveRes = response.msg;
-        $("#adjectiveRes").text(adjectiveRes);
+
         //insert into adjective response tag
+        $("#adjectiveRes").text(adjectiveRes);
       });
     }
 
     if (verb) {
       verbPost = {word: verb};
       $.post("verb", verbPost, function(response) {
-        //post verb to
         var verbRes = response.msg;
         $("#verbRes").text(verbRes);
-        //insert into verb response tag
       });
     }
 
     if (noun) {
       nounPost = {word: noun};
       $.post("noun", nounPost, function(response) {
-        //post noun to
         var nounRes = response.msg;
         $("#nounRes").text(nounRes);
-        //insert into noun response tag
       });
     }
 

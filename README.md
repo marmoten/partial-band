@@ -22,3 +22,6 @@ http://api.jquery.com/reset-selector/
 
 jQuery empty() method
 https://api.jquery.com/empty/
+
+jQuery hover() method
+https://api.jquery.com/hover/

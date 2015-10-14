@@ -4,8 +4,9 @@ var express = require('express');
 var app = express();
 var bodyparser = require('body-parser');
 var port = process.env.PORT || 3000;
-var Adjective = require('./lib/adjective.js');
+
 //assign Adjective variable name to adjective.js file
+var Adjective = require('./lib/adjective.js');
 var Verb = require('./lib/verb.js');
 var Noun = require('./lib/noun.js');
 var getRandomWord = require('./lib/getRandomWord.js');
@@ -20,10 +21,10 @@ app.use(bodyparser.urlencoded({
   extended: true
 }));
 
-app.use(express.static(__dirname + '/app/'));
 //statically serves the contents of app
+app.use(express.static(__dirname + '/app/'));
 
-function postWord (word, wordObject) {
+function postWord(word, wordObject) {
 
   if (wordObject.hasOwnProperty(word)) {
     return {msg: 'We already have your awesome word, ' + word + ', in our list.'};
@@ -32,7 +33,7 @@ function postWord (word, wordObject) {
   wordObject[word] = true;
   console.dir(wordObject);
   return {msg: 'Thanks for submitting ' + word + '!'};
-};
+}
 
 app.get('/adjective', function(req, res) {
   res.json(getRandomWord(adjective));
@@ -73,15 +74,11 @@ app.post('/noun', function(req, res) {
   res.json(word);
 });
 
+//on slash, return index.html file
 app.get('/', function(req, res) {
   res.sendFile('index.html');
 });
-//on slash, return index.html file
 
 app.listen(port, function() {
   console.log('server starting. available at http://localhost:' + port);
 });
-
-// app.get('/', function(req, res) {
-//   res.send('hello, universe');
-// });
